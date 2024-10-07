@@ -14,7 +14,7 @@
 #include <fbjni/fbjni.h>
 #include <jsi/JSIDynamic.h>
 #include <jsi/jsi.h>
-#include <react/jni/JMessageQueueThread.h>
+// #include <react/jni/JMessageQueueThread.h>
 #include <react/jni/ReadableNativeArray.h>
 #include <react/jni/ReadableNativeMap.h>
 
@@ -67,7 +67,7 @@ NativeProxy::NativeProxy(
     RuntimeExecutor runtimeExecutor,
     const std::shared_ptr<UIScheduler> &uiScheduler,
     jni::global_ref<LayoutAnimations::javaobject> layoutAnimations,
-    jni::alias_ref<JavaMessageQueueThread::javaobject> messageQueueThread,
+    // jni::alias_ref<JavaMessageQueueThread::javaobject> messageQueueThread,
     jni::alias_ref<facebook::react::JFabricUIManager::javaobject>
         fabricUIManager)
     : javaPart_(jni::make_global(jThis)),
@@ -159,7 +159,7 @@ jni::local_ref<NativeProxy::jhybriddata> NativeProxy::initHybridBridgeless(
     jni::alias_ref<react::JRuntimeExecutor::javaobject> runtimeExecutorHolder,
     jni::alias_ref<AndroidUIScheduler::javaobject> androidUiScheduler,
     jni::alias_ref<LayoutAnimations::javaobject> layoutAnimations,
-    jni::alias_ref<JavaMessageQueueThread::javaobject> messageQueueThread,
+    // jni::alias_ref<JavaMessageQueueThread::javaobject> messageQueueThread,
     jni::alias_ref<facebook::react::JFabricUIManager::javaobject>
         fabricUIManager) {
   auto uiScheduler = androidUiScheduler->cthis()->getUIScheduler();
@@ -173,7 +173,7 @@ jni::local_ref<NativeProxy::jhybriddata> NativeProxy::initHybridBridgeless(
       runtimeExecutor,
       uiScheduler,
       make_global(layoutAnimations),
-      messageQueueThread,
+      // messageQueueThread,
       fabricUIManager);
 }
 #endif // REACT_NATIVE_MINOR_VERSION >= 74 && defined(RCT_NEW_ARCH_ENABLED
